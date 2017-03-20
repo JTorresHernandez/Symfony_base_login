@@ -1,0 +1,19 @@
+{% extends '::base.html.twig' %}
+{%  block title %}Form {% endblock %}
+{%  block body  %}
+
+    <div>
+        <form method="producto" action="{{ action }}" novalidate="novalidate">
+            <div>
+
+
+            </div>
+            <div>{{ form_label(form.Nombre) }}: {{ form_widget(form.Nombre, {'attr' : { 'class' : 'anyClass2'}}) }}</div>
+            <div>{{ form_label(form.Tipo) }} : {{ form_widget(form.Tipo) }}</div>
+            <div>{{ form_label(form.Descripcion) }} : {{ form_widget(form.Descripcion) }}</div>
+            {{ form_rest(form) }}
+
+
+        </form>
+    </div>
+{% endblock %}

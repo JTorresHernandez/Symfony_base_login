@@ -1,7 +1,6 @@
 <?php
 
 namespace AppBundle\Controller;
-
 use AppBundle\Entity\Image;
 use AppBundle\Form\ImageType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -17,7 +16,6 @@ class IndexController extends Controller
     {
         return $this->render(':index:index.html.twig');
     }
-
     /**
      * @Route("/upload", name="app_index_upload")
      */
@@ -25,21 +23,18 @@ class IndexController extends Controller
     {
         $p = new Image();
         $form = $this->createForm(ImageType::class, $p);
-
         if ($request->getMethod() == Request::METHOD_POST) {
             $form->handleRequest($request);
-
             if ($form->isValid()) {
                 $m = $this->getDoctrine()->getManager();
                 $m->persist($p);
                 $m->flush();
-
                 return $this->redirectToRoute('app_index_index');
             }
         }
-
         return $this->render(':index:upload.html.twig', [
             'form' => $form->createView(),
         ]);
     }
+
 }

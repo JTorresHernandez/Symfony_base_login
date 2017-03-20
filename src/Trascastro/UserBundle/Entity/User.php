@@ -31,6 +31,14 @@ class User extends BaseUser
     protected $id;
 
     /**
+     * @var string
+     *
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Producto", mappedBy="autor")
+     *
+     */
+    private $producto;
+
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="created_at", type="datetime")
